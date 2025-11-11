@@ -1,9 +1,0 @@
-[{
-  "_id": "t1",
-  "producto": "p3",
-  "nombreProducto": "Agua 1L",
-  "cantidad": 15,
-  "sucursalDestino": "Sucursal Morelia",
-  "fecha": "2025-11-07T15:30:00",
-  "estado": "Completado"
-}]
