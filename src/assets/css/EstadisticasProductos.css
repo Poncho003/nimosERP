@@ -1,0 +1,155 @@
+html,
+body {
+    height: 100%;
+    overflow: hidden;
+}
+
+.page-layout {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== CONTENEDOR GENERAL ===== */
+.stats-page {
+    flex: 1;
+    padding: 20px;
+    background: linear-gradient(135deg, #f5f7fa, #e4ebf5);
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    overflow-y: auto;
+    /* ✅ AQUÍ va el scroll */
+    overflow-x: hidden;
+    /* evita scroll horizontal feo */
+}
+
+.stats-page::-webkit-scrollbar {
+    width: 8px;
+}
+
+.stats-page::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+.stats-page::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+
+/* ===== GRID SUPERIOR ===== */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+/* ===== TARJETAS ===== */
+.stat-card {
+    background: white;
+    border-radius: 18px;
+    padding: 18px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+}
+
+.stat-card i {
+    font-size: 2.2rem;
+    margin-bottom: 6px;
+}
+
+.stat-card h2 {
+    margin: 4px 0;
+    font-size: 1.9rem;
+    font-weight: 700;
+}
+
+.stat-card span {
+    font-size: 0.85rem;
+    opacity: 0.75;
+}
+
+/* ===== COLORES ===== */
+.stat-card.blue i {
+    color: #3498db;
+}
+
+.stat-card.green i {
+    color: #2ecc71;
+}
+
+.stat-card.red i {
+    color: #e74c3c;
+}
+
+.stat-card.purple i {
+    color: #9b59b6;
+}
+
+/* ===== SECCIÓN DISTRIBUCIÓN ===== */
+.stats-section {
+    background: white;
+    border-radius: 18px;
+    padding: 20px 26px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.stats-section h3 {
+    margin-bottom: 16px;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* ===== BARRAS ===== */
+.fake-bars>div {
+    margin-bottom: 14px;
+}
+
+.fake-bars span {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+.bar {
+    height: 16px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #3498db, #6dd5fa);
+}
+
+/* Anchuras */
+.w60 {
+    width: 60%;
+}
+
+.w40 {
+    width: 40%;
+}
+
+.w30 {
+    width: 30%;
+}
+
+/* Footer */
+.footer {
+    background: var(--secondary-color);
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 0.9rem 0;
+    font-size: 0.9rem;
+}

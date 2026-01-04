@@ -1,0 +1,296 @@
+.home-wrapper {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Reset SOLO dentro del Home */
+.home-wrapper * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variables SOLO para Home */
+.home-wrapper {
+    --primary-color: #3498db;
+    --secondary-color: #2c3e50;
+    --success-color: #2ecc71;
+    --danger-color: #e74c3c;
+    --light-color: #ecf0f1;
+    --dark-color: #2c3e50;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Container */
+.home-wrapper .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* Header */
+.home-wrapper .header {
+    background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
+    color: white;
+    padding: 0.6rem 0;
+    box-shadow: var(--shadow);
+}
+
+.home-wrapper .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.95rem;
+}
+
+.home-wrapper .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.home-wrapper .logo-icon {
+    font-size: 1.5rem;
+}
+
+.home-wrapper .logo-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.home-wrapper .user-info {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.home-wrapper .user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-wrapper .logout-btn {
+    background: var(--danger-color);
+    color: white;
+    padding: 0.4rem 0.9rem;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.home-wrapper .logout-btn:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+}
+
+/* Hero */
+.home-wrapper .hero {
+    text-align: center;
+    padding: 2rem 0 1rem;
+}
+
+.home-wrapper .hero-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 0.6rem;
+}
+
+.home-wrapper .hero-subtitle {
+    font-size: 1rem;
+    color: #7f8c8d;
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.4;
+}
+
+/* Cards */
+.home-wrapper .actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.home-wrapper .action-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.home-wrapper .action-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+}
+
+.home-wrapper .card-icon {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-text-fill-color: transparent;
+}
+
+.home-wrapper .card-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+}
+
+.home-wrapper .card-description {
+    color: #7f8c8d;
+    margin-bottom: 1.2rem;
+    font-size: 0.95rem;
+}
+
+.home-wrapper .btn-action {
+    padding: 0.5rem 1.4rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-decoration: none;
+}
+
+.home-wrapper .btn-almacen {
+    background: linear-gradient(to right, var(--secondary-color), #34495e);
+    color: white;
+}
+
+.home-wrapper .btn-almacen:hover {
+    transform: translateY(-2px);
+}
+
+.home-wrapper .btn-compra {
+    background: linear-gradient(to right, var(--success-color), #27ae60);
+    color: white;
+}
+
+.home-wrapper .btn-compra:hover {
+    transform: translateY(-2px);
+}
+
+/* Footer */
+.home-wrapper .footer {
+    background: var(--secondary-color);
+    color: white;
+    text-align: center;
+    padding: 0.7rem 0;
+    font-size: 0.9rem;
+}
+
+@media (max-height: 700px) {
+    .home-wrapper .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .home-wrapper .action-card {
+        padding: 1.2rem;
+    }
+}
+
+/* HEADER COMPLETO TIPO INVENTARIO */
+.main-header {
+    width: 100%;
+    background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
+    padding: 1.5rem 0;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+}
+
+/* CONTENIDO CENTRADO IGUAL QUE INVENTARIO */
+.main-header-content {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* LOGO */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: white;
+}
+
+.logo-icon {
+    background: rgba(255, 255, 255, 0.15);
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    box-shadow: var(--shadow);
+}
+
+.logo-text {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+/* USER INFO */
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    color: white;
+}
+
+.user-avatar {
+    background: rgba(255, 255, 255, 0.1);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+}
+
+.user-name {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* BOTÓN DE SALIDA */
+.logout-btn {
+    background: rgba(0, 0, 0, 0.25);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.logout-btn:hover {
+    background: rgba(0, 0, 0, 0.4);
+}

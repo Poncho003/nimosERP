@@ -1,0 +1,26 @@
+.image-picker {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 80px);
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.image-option {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border: 2px solid transparent;
+    cursor: pointer;
+    padding: 6px;
+    background: #fff;
+}
+
+.image-option:hover {
+    border-color: #ccc;
+}
+
+.image-selected {
+    border-color: #32a7ac;
+    border-radius: 8px;
+    background: #f4fefe;
+}

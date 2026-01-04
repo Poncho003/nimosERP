@@ -1,0 +1,652 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2c3e50;
+    --success-color: #2ecc71;
+    --danger-color: #e74c3c;
+    --light-color: #ecf0f1;
+    --dark-color: #2c3e50;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+body {
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.page-header {
+    background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
+    color: white;
+    padding: 1.8rem;
+    border-radius: 12px;
+    margin: 1.5rem 0;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.page-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+    transform: translateX(-100%);
+}
+
+.page-header.animate::before {
+    animation: shimmer 2s ease-out;
+}
+
+.btn-action {
+    border-radius: 50px;
+    font-weight: 600;
+    padding: .6rem 1.4rem;
+    box-shadow: var(--shadow);
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-action::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.btn-action:hover::before {
+    left: 100%;
+}
+
+.btn-home {
+    background: linear-gradient(to right, var(--secondary-color), #34495e);
+    color: white;
+    border: none;
+}
+
+.btn-envios {
+    background: linear-gradient(to right, var(--success-color), #27ae60);
+    color: white;
+    border: none;
+}
+
+.producto-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: var(--shadow);
+    cursor: grab;
+    transition: var(--transition);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.producto-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+.producto-card:hover::before {
+    transform: scaleY(1);
+}
+
+.producto-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(52, 152, 219, 0.4);
+}
+
+.producto-card.dragging {
+    transform: rotate(5deg) scale(0.95);
+    opacity: 0.7;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.producto-card.pulse {
+    animation: pulse 1.5s infinite;
+}
+
+.producto-titulo {
+    font-weight: 700;
+    color: var(--secondary-color);
+}
+
+.badge-stock {
+    padding: .25rem .7rem;
+    border-radius: 20px;
+    font-size: .78rem;
+    font-weight: 600;
+}
+
+.badge-low {
+    background-color: #ffeaa7;
+    color: #d35400;
+}
+
+.badge-medium {
+    background-color: #a29bfe;
+    color: white;
+}
+
+.badge-high {
+    background-color: #55efc4;
+    color: #00b894;
+}
+
+.carrito-drop {
+    background: rgba(236, 240, 241, .9);
+    border-radius: 12px;
+    border: 2px dashed #95a5a6;
+    padding: 1rem;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: .6rem;
+    transition: var(--transition);
+    position: relative;
+}
+
+.carrito-drop::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(52, 152, 219, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.carrito-drop.activo {
+    border-color: var(--primary-color);
+    background: rgba(236, 240, 241, 1);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+    animation: pulse-border 1.5s infinite;
+}
+
+.carrito-drop.activo::before {
+    opacity: 1;
+}
+
+.carrito-item {
+    background: white;
+    border-radius: 10px;
+    padding: .6rem .8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow);
+    animation: slideIn 0.3s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.carrito-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(52, 152, 219, 0.05), transparent);
+    transform: translateX(-100%);
+}
+
+.carrito-item.added::before {
+    animation: shimmer-item 0.8s ease-out;
+}
+
+.carrito-empty {
+    color: #7f8c8d;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.trash-drop {
+    border: 2px dashed #e74c3c;
+}
+
+.trash-drop.activo {
+    background: rgba(231, 76, 60, 0.15);
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.25);
+    animation: pulse-border-danger 1.5s infinite;
+}
+
+/* Efectos de partículas al soltar */
+.particles {
+    position: absolute;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* Animaciones personalizadas */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(52, 152, 219, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(52, 152, 219, 0);
+    }
+}
+
+@keyframes pulse-border {
+    0% {
+        box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(52, 152, 219, 0.2);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(52, 152, 219, 0);
+    }
+}
+
+@keyframes pulse-border-danger {
+    0% {
+        box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(231, 76, 60, 0.2);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(231, 76, 60, 0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes shimmer-item {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Efecto de confeti */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background-color: var(--primary-color);
+    opacity: 0;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+/* Indicador visual de arrastre */
+.drag-indicator {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(52, 152, 219, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.drag-indicator.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Efecto de brillo en el total */
+.total-highlight {
+    animation: totalPulse 0.5s ease-out;
+}
+
+@keyframes totalPulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Estilo para el botón de confirmar */
+.btn-confirm {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-confirm::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+
+.btn-confirm:focus:not(:active)::after {
+    animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.5;
+    }
+
+    20% {
+        transform: scale(25, 25);
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: scale(40, 40);
+        opacity: 0;
+    }
+}
+
+.inventory-wrapper {
+    max-width: 1300px;
+    margin: auto;
+}
+
+/* Header full width */
+.header-fullwide {
+    width: 100%;
+    background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
+    padding: 1.8rem 0;
+    box-shadow: var(--shadow);
+}
+
+/* Centrar contenido del header */
+.header-fullwide .page-header {
+    width: 90%;
+    margin: 0 auto;
+    color: white;
+}
+
+/* Quitar el margin del header interno */
+.page-header {
+    margin-top: 0 !important;
+}
+
+.header-fullwide {
+    margin-bottom: 2.5rem;
+}
+
+.producto-img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 10px;
+    box-shadow: var(--shadow);
+}
+
+
+/* ===== CRUD INDEX (Productos en Bodega) ===== */
+
+.crud-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.crud-card {
+    background: white;
+    border-radius: 20px;
+    padding: 35px 20px;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.crud-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(52, 152, 219, 0.08),
+        transparent 60%
+    );
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.crud-card:hover::before {
+    opacity: 1;
+}
+
+.crud-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.15);
+}
+
+.crud-card i {
+    font-size: 3.2rem;
+    color: var(--primary-color);
+    margin-bottom: 18px;
+    display: block;
+    animation: float 3s ease-in-out infinite;
+}
+
+.crud-card span {
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+}
+
+/* Variante peligrosa (eliminar) */
+.crud-card.danger i {
+    color: var(--danger-color);
+}
+
+.crud-card.danger::before {
+    background: linear-gradient(
+        135deg,
+        rgba(231, 76, 60, 0.12),
+        transparent 60%
+    );
+}
+
+.btn-active {
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.4) inset;
+    transform: scale(1.05);
+}
+
+.crud-section {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.crud-section i {
+    font-size: 2.8rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.crud-section h3 {
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.crud-section input {
+    width: 100%;
+    max-width: 420px;
+    margin: 8px auto;
+    display: block;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 2px solid #ddd;
+    font-size: 1rem;
+}
+
+.crud-actions {
+    text-align: center;
+    margin-top: 40px;
+}
+
+
+/* ===== CATEGORÍAS ===== */
+.categoria-block {
+    margin-bottom: 14px;
+}
+
+.categoria-header {
+    background: #f4f6f9;
+    padding: 12px 16px;
+    border-radius: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: background .2s;
+}
+
+.categoria-header:hover {
+    background: #e8edf5;
+}
+
+.categoria-header i {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* ===== PRODUCTOS ===== */
+.producto-card {
+    background: white;
+    border-radius: 16px;
+    padding: 12px 14px;
+    margin-top: 10px;
+    box-shadow: 0 8px 18px rgba(0,0,0,.1);
+    cursor: grab;
+    transition: transform .15s;
+}
+
+.producto-card:active {
+    cursor: grabbing;
+    transform: scale(.98);
+}
+
+.producto-img {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-right: 10px;
+}
+
+/* ===== PACA ===== */
+.carrito-drop {
+    background: #f9fafc;
+    border-radius: 16px;
+    padding: 14px;
+    min-height: 200px;
+}
+
+.carrito-item {
+    background: white;
+    border-radius: 12px;
+    padding: 10px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    box-shadow: 0 6px 14px rgba(0,0,0,.1);
+}
